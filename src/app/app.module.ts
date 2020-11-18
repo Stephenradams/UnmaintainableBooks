@@ -8,6 +8,12 @@ import { BooksPageComponent } from './books-page/books-page.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInput, MatInputModule} from '@angular/material/input';
+import {HttpClientModule} from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [AppComponent, BooksPageComponent, BooksListComponent],
@@ -17,7 +23,13 @@ import {MatInput, MatInputModule} from '@angular/material/input';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    MatTableModule,
+    MatListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

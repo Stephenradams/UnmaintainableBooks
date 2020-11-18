@@ -1,8 +1,36 @@
 <div class="wrapper">
   <h2>Our Current Books</h2>
   <mat-form-field class="example-full-width">
-    <mat-label>Search for a book</mat-label>
-    <input type="input" matInput [formControl]="bookInput" placeholder="Search for a book....">
+    <mat-label>Search by author</mat-label>
+    <input type="input" matInput [formControl]="bookInput" placeholder="Search by author....">
+
 
   </mat-form-field>
+  <div *ngIf="data" class="container">
+
+    <mat-list>
+      <mat-list-item *ngFor="let auth of data['author']">
+        <div>{{auth.authordisplay}}</div>
+        <div *ngIf="auth.titles">
+          Number of titles: {{auth.titles.isbn.length}}
+        </div>
+        <div *ngIf="auth.titles">
+          <button mat-button color="primary" (click)="moreDetails()">View titles</button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-card *ngIf="moreDetailsData">
+      <mat-card-title>Titles</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let title of moreDetailsData['work']">
+            {{title.titleAuth}}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+
+  </div>
 </div>

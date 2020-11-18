@@ -11,3 +11,17 @@
 .example-full-width {
   width: 100%;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  mat-list-item {
+    display: flex;
+order: inherit;
+
+
+    margin-bottom: 15px;
+  }
+}
+
+
