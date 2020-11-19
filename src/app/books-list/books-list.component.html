@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <h1>Our Current Books</h1>
+  <mat-form-field class="example-full-width">
+    <mat-label>Search by author</mat-label>
+    <input type="input" matInput [formControl]="bookInput" placeholder="Search by author....">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="getData()">Search</button>
+  <div *ngIf="data" class="container">
+
+    <div class="listing" *ngFor="let auth of data['author']">
+      <mat-card *ngIf="auth.titles">
+        <mat-card-title>{{ auth.authordisplay }}</mat-card-title>
+        <mat-card-content>
+          <div>Number of titles: {{auth.titles.isbn.length}}</div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="moreDetails()">View titles</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card *ngIf="!auth.titles">
+        <mat-card-title>
+          Sorry,
+        </mat-card-title>
+        <mat-card-content>
+          No results found for this author
+        </mat-card-content>
+      </mat-card>
+      <mat-divider></mat-divider>
+    </div>
+
+
+    <mat-card *ngIf="moreDetailsData">
+      <mat-card-title>Titles</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let title of moreDetailsData['work']">
+            {{title.titleAuth}}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+
+  </div>
+</div>
