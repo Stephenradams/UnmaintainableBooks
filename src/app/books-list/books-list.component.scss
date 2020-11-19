@@ -1,12 +1,7 @@
 .wrapper {
-  min-width: 600px;
+  min-width: 800px;
 }
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
 
 .example-full-width {
   width: 100%;
@@ -14,13 +9,9 @@
 
 .container {
   display: flex;
-  flex-direction: row;
-  mat-list-item {
-    display: flex;
-order: inherit;
-
-
-    margin-bottom: 15px;
+  flex-direction: column;
+  .listing {
+    display: flow;
   }
 }
 

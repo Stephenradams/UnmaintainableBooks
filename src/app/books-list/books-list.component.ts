@@ -18,8 +18,8 @@ export class BooksListComponent implements OnInit {
     Validators.required
   ]);
 
-  path = 'https://reststop.randomhouse.com/resources/authors?lastName=Grisham';
-  detailsPath = 'https://reststop.randomhouse.com/resources/works/?start=0&max=3&expandLevel=1&search=Grisham';
+  path = 'https://reststop.randomhouse.com/resources/authors?lastName=';
+  detailsPath = 'https://reststop.randomhouse.com/resources/works/?start=0&max=3&expandLevel=1&search=';
 
   data;
   moreDetailsData;
@@ -30,11 +30,13 @@ export class BooksListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getData();
+    // this.getData();
   }
 
   getData() {
-    this.http.get(this.path).subscribe((res) => {
+    console.log(this.bookInput.value);
+    this.moreDetailsData = '';
+    this.http.get(this.path + this.bookInput.value).subscribe((res) => {
       this.data = res;
       console.log(this.data);
     });
@@ -42,7 +44,7 @@ export class BooksListComponent implements OnInit {
 
   moreDetails() {
     // console.log(authorID);
-    const path = this.detailsPath;
+    const path = this.detailsPath + this.bookInput.value;
     this.http.get(path).subscribe((res) => {
       console.log(res);
       this.moreDetailsData = res;

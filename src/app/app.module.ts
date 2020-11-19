@@ -14,6 +14,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, BooksPageComponent, BooksListComponent],
@@ -29,7 +30,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatListModule,
     MatCardModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
